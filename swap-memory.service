@@ -1,0 +1,8 @@
+[Unit]
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/swap-memory.sh 8
+
+[Install]
+WantedBy=default.target
