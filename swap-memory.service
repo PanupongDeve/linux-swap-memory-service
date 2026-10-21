@@ -1,8 +1,13 @@
 [Unit]
+Description=Linux Swap Memory Service
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/swap-memory.sh 8
+Type=oneshot
+RemainAfterExit=yes
+EnvironmentFile=-/etc/swap-memory.conf
+ExecStart=/usr/local/bin/swap-memory.sh
+ExecStop=/usr/local/bin/swap-memory.sh --stop
 
 [Install]
 WantedBy=default.target
